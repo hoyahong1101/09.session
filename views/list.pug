@@ -1,0 +1,22 @@
+extends layout.pug
+block content
+	.container
+		table.table.table-bordered.mt-5
+			thead.bg-dark
+				tr(style="color:white")
+					th 번호
+					th 제목
+					th 작성자
+					th 작성일
+					th 조회수
+			tbody
+				each list in lists
+					tr
+						td= list.id
+						td
+							a(href=`/pug/view/${list.id}`)= list.title
+								if list.fileIcon
+									i.fa.fa-file.ml-3
+						td= list.writer
+						td= list.wdate
+						td= list.rnum
